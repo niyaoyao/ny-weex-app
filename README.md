@@ -1,1 +1,1 @@
-# weex-eleme-demo
+# Weex Cross Platform App for Eleme
