@@ -1,0 +1,198 @@
+<template>
+  <scroller class="container">
+    <div class="eleme-header">
+      <text class="eleme-location">当前地理位置</text>
+      <input class="eleme-input" placeholder="搜索商家、商品名称"></input>
+    </div>
+    <div class="eleme-slider-panel">
+        <slider class="eleme-slider" append="tree" interval="{{sliders[0].interval}}" auto-play="false">
+          <indicator class="indicator"></indicator>
+          <slider-page repeat="{{sliders[0].sliderPages}}"></slider-page>
+        </slider>
+    </div>
+
+    <scroller class="eleme-list">
+      <div repeat="{{imageList[0]}}">
+      <image src="{{src}}" class="eleme-slider-image"></image>
+      <text>image:{{src}}</text>
+      </div>
+    </scroller>
+  </scroller>
+</template>
+
+<style>
+.cell { margin-top: 10; margin-left: 10; flex-direction: row; }
+.thumb { width: 200; height: 200; }
+.title { text-align: center; flex: 1; color: grey; font-size: 50; }
+.eleme-header {
+  background-color: #3190e8;
+  color: #fff;
+  font-size: 16;
+}
+.eleme-location {
+   margin-top: 10;
+   margin-bottom: 10; 
+   margin-left: 10;
+   color: #fff;
+}
+.eleme-input {
+    background-color: #fff;
+    color: #333;
+    height: 50;
+    font-size: 20;
+    text-align: center;
+    margin-right: 40;
+    margin-left: 40;
+    border-radius: 25;
+    margin-top: 10;
+    margin-bottom: 10;
+}
+.eleme-slider-panel {
+  /*margin-left: 18;*/
+  /*margin-right: 18;*/
+  background-color: #333;
+}
+.eleme-slider {
+  height: 300;
+  background-color: #fff;
+}
+.eleme-slider-image {
+  width: 80;
+  height: 80;
+}
+.indicator {
+    position: absolute;
+    itemColor: #eee;
+    itemSelectedColor: #ccc;
+    itemSize:20;
+    top:90;
+    width:700;
+    height:380;
+}
+.eleme-list { 
+  	background-color: #eee;
+  	height: 300;
+}
+
+
+
+</style>
+
+<script>
+  require('weex-components');
+  var img0 = '//gw.alicdn.com/tps/i2/TB1DpsmMpXXXXabaXXX20ySQVXX-512-512.png_400x400.jpg';
+  var img1 = '//gw.alicdn.com/tps/i1/TB1M3sQMpXXXXakXXXXApNeJVXX-360-360.png';
+	module.exports = {
+	  data: {
+	  	list: [
+	  	  {'name': 'n1', price: 12},
+	  	  {'name': 'n2', price: 12},
+	  	  {'name': 'n3', price: 12},
+	  	  {'name': 'n4', price: 12},
+	  	  {'name': 'n5', price: 12},
+	  	  {'name': 'n6', price: 12}
+	  	],
+	  	imageList: [
+		  	[
+          {src: 'https://fuss10.elemecdn.com/b/7e/d1890cf73ae6f2adb97caa39de7fcjpeg.jpeg', name: 'a'},
+          {src: 'https://fuss10.elemecdn.com/2/35/696aa5cf9820adada9b11a3d14bf5jpeg.jpeg', name: 'b'},
+          {src: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg', name: 'c'},
+          {src: 'https://fuss10.elemecdn.com/8/c4/f04e5364ac5a539c691ea57c9b2bajpeg.jpeg', name: 'd'}],
+        [
+          {src: 'https://fuss10.elemecdn.com/4/34/ea0d51c9608310cf41faa5de6b8efjpeg.jpeg', name: 'e'}
+          ]
+		  ],
+      sliders: [
+        {
+          interval: 1000,
+          autoPlay: true,
+          sliderPages: [
+            {
+              items: [
+                {
+                  image: img0,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a0'
+                },
+                {
+                  image: img0,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a1'
+                },
+                {
+                  image: img0,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a2'
+                },
+                {
+                  image: img0,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a3'
+                },
+                {
+                  image: img0,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a4'
+                },
+                {
+                  image: img0,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a5'
+                },
+                {
+                  image: img0,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a6'
+                },
+                {
+                  image: img0,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'b'
+                }
+              ]
+            },
+            {
+              items: [
+                {
+                  image: img1,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },{
+                  image: img1,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },{
+                  image: img1,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },{
+                  image: img1,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },{
+                  image: img1,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },{
+                  image: img1,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },{
+                  image: img1,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },
+                {
+                  image: img1,
+                  link: '//h5.m.taobao.com/1',
+                  name: 'd'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+	  }
+	}
+</script>
+

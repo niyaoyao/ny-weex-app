@@ -1,93 +1,216 @@
 <template>
-  <scroller class="container">
-    <div class="eleme-header">
-      <text class="eleme-location">当前地理位置</text>
-      <input class="eleme-input" placeholder="搜索商家、商品名称"></input>
-    </div>
-    <div class="eleme-slider-panel">
-      <slider auto-play="false" class="eleme-slider">
-        <image repeat="{{imageList}}" src="{{src}}" class="eleme-slider-image"></image>
-        <text repeat="{{imageList}}" >{{name}}</text>
-        <indicator></indicator>
-      </slider>
-      <image class="eleme-image" src="https://fuss10.elemecdn.com/b/7e/d1890cf73ae6f2adb97caa39de7fcjpeg.jpeg"></image>
-    </div>
-
-    <scroller class="eleme-list">
-      <div repeat="{{imageList}}">
-      <image src="{{src}}" class="eleme-slider-image"></image>
-      <text>image:{{src}}</text>
+  <list>
+    <cell>
+      <div class="eleme-header">
+        <text class="eleme-location">当前地理位置</text>
+        <input class="eleme-input" placeholder="搜索商家、商品名称"></input>
       </div>
-    </scroller>
-  </scroller>
+    </cell>
+
+    <cell>
+      <slider class="eleme-slider" append="tree" interval="{{sliders[0].interval}}" auto-play="false">
+        <indicator class="indicator"></indicator>
+        <slider-page repeat="{{sliders[0].sliderPages}}"></slider-page>
+      </slider>
+      <div class="eleme-cell-separate-block"></div>
+    </cell>
+
+    <div>
+    <text class="eleme-cell-section-header">附近商家</text>
+    </div>
+    <cell>
+    </cell>
+
+  </list>
 </template>
 
 <style>
-.cell { margin-top: 10; margin-left: 10; flex-direction: row; }
-.thumb { width: 200; height: 200; }
-.title { text-align: center; flex: 1; color: grey; font-size: 50; }
-.eleme-header {
-  background-color: #3190e8;
-  color: #fff;
-  font-size: 16;
-}
-.eleme-location {
-   margin-top: 10;
-   margin-bottom: 10; 
-   margin-left: 10;
-}
-.eleme-input {
+  .eleme-header {
+    background-color: #3190e8;
+    color: #fff;
+    font-size: 16;
+  }
+  .eleme-location {
+     margin-top: 10;
+     margin-bottom: 10; 
+     margin-left: 10;
+     color: #fff;
+  }
+  .eleme-input {
+      background-color: #fff;
+      color: #333;
+      height: 50;
+      font-size: 20;
+      text-align: center;
+      margin-right: 40;
+      margin-left: 40;
+      border-radius: 25;
+      margin-top: 10;
+      margin-bottom: 10;
+  }
+  .eleme-slider-panel {
+    /*margin-left: 18;*/
+    /*margin-right: 18;*/
+    background-color: #333;
+  }
+  .eleme-slider {
+    height: 300;
     background-color: #fff;
-    color: #333;
-    height: 50;
-    font-size: 20;
-    text-align: center;
-    margin-right: 40;
-    margin-left: 40;
-    border-radius: 25;
-    margin-top: 10;
-    margin-bottom: 10;
-}
-.eleme-slider-panel {
-	height: 360;
-  /*margin-left: 18;*/
-  /*margin-right: 18;*/
-}
-.eleme-slider {
-  height: 360;
-  background-color: #eee;
-}
-.eleme-slider-image {
-  width: 80;
-  height: 80;
-}
-.eleme-list { 
-  	background-color: #eee;
-  	height: 100;
-}
-
+  }
+  .eleme-slider-image {
+    width: 80;
+    height: 80;
+  }
+  .indicator {
+      position: absolute;
+      itemColor: #eee;
+      itemSelectedColor: #aaa;
+      itemSize:15;
+      top:90;
+      width:700;
+      height:380;
+  }
+  .eleme-list { 
+      background-color: #eee;
+      height: 300;
+  }
+  .eleme-cell-separate-block {
+    height: 20;
+    background-color: #eee;
+  } 
+  .eleme-cell-section-header {
+    line-height: 60;
+    height: 60;
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
+    color: #999;
+    font-size: 24;
+    padding-left: 10;
+  }
 </style>
 
 <script>
-	module.exports = {
-	  data: {
-	  	list: [
-	  	  {'name': 'n1', price: 12},
-	  	  {'name': 'n2', price: 12},
-	  	  {'name': 'n3', price: 12},
-	  	  {'name': 'n4', price: 12},
-	  	  {'name': 'n5', price: 12},
-	  	  {'name': 'n6', price: 12}
-	  	],
-	  	imageList: [
-		  	{src: 'https://fuss10.elemecdn.com/b/7e/d1890cf73ae6f2adb97caa39de7fcjpeg.jpeg', name: 'a'},
-		  	{src: 'https://fuss10.elemecdn.com/2/35/696aa5cf9820adada9b11a3d14bf5jpeg.jpeg', name: 'b'},
-		  	{src: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg', name: 'c'},
-		  	{src: 'https://fuss10.elemecdn.com/8/c4/f04e5364ac5a539c691ea57c9b2bajpeg.jpeg', name: 'd'},
-		  	{src: 'https://fuss10.elemecdn.com/4/34/ea0d51c9608310cf41faa5de6b8efjpeg.jpeg', name: 'e'}
-		],
-		
-	  }
-	}
+  require('weex-components');
+  module.exports = {
+    data: {
+      dataSource: [
+        {name: 'aa'},
+        {name: 'ss'},
+        {name: 'dd'},
+        {name: 'ff'},
+        {name: 'fsf'},
+        {name: 'gg'},
+        {name: 'ddd'},
+        {name: 'sss'},
+        {name: 'ses'},
+        {name: 'dgd'}
+      ],
+      sliders: [
+        {
+          interval: 1000,
+          autoPlay: true,
+          sliderPages: [
+            {
+              items: [
+                {
+                  image: 'https://fuss10.elemecdn.com/b/7e/d1890cf73ae6f2adb97caa39de7fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a0'
+                },
+                {
+                  image: 'https://fuss10.elemecdn.com/2/35/696aa5cf9820adada9b11a3d14bf5jpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a1'
+                },
+                {
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a2'
+                },
+                {
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a3'
+                },
+                {
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a4'
+                },
+                {
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a5'
+                },
+                {
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'a6'
+                },
+                {
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'b'
+                }
+              ]
+            },
+            {
+              items: [
+                {
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },{
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },{
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },{
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },{
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },{
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },{
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'c'
+                },
+                {
+                  image: 'https://fuss10.elemecdn.com/1/c6/8edcaeb8cd35845946db6673660fcjpeg.jpeg',
+                  link: '//h5.m.taobao.com/1',
+                  name: 'd'
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    methods: {
+
+    },
+    init: function () {
+      console.log('在初始化内部变量，并且添加了事件功能后被触发');
+    },
+    created: function () {
+      console.log('完成数据绑定之后，模板编译之前被触发');
+    },
+    ready: function () {
+      console.log('模板已经编译并且生成了 Virtual DOM 之后被触发');
+    },
+    destroyed: function () {
+      console.log('在页面被销毁时调用');
+    }
+  }
 </script>
 

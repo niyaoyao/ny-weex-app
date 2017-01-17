@@ -1,9 +1,9 @@
 <style>
   .slider-page {
+    flex-wrap: wrap;
     flex-direction: row;
-    justify-content: space-between;
-    width: 690;
-    height: 360;
+    width: 750;
+    height: 350;
   }
 </style>
 

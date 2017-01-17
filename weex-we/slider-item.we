@@ -1,5 +1,8 @@
 <template>
-  <image class="slider-item" src="{{image}}"></image>
+<div class="slider-item">
+  <image class="slider-item-image" src="{{image}}"></image>
+  <text class="slider-item-text">{{name}}</text>
+</div>
 </template>
 
 <script>
@@ -7,7 +10,8 @@
     data: {
       image: '',
       link: '',
-      href: ''
+      href: '',
+      name: ''
     },
     methods: {
       ready: function() {
@@ -19,8 +23,24 @@
 
 <style>
   .slider-item {
-    width: 100;
-    height: 100;
-    margin: 10;
+    width: 165;
+    height: 150;
+    flex-direction: colomn;
+    margin-left: 10;
+    margin-right: 10;
+    margin-top: 5;
+    margin-bottom: 0;
+    align-items: center;
+  }
+  .slider-item-image {
+    width: 90;
+    height: 90;
+    display: block;
+  }
+  .slider-item-text {
+    height: 24;
+    font-size: 20;
+    color: #aaa;
+    text-align: center;
   }
 </style>
