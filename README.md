@@ -1,4 +1,4 @@
-# Weex Cross Platform App for Eleme
+# Weex Cross Platform App for Douban
 
 ## Install Weex App
 
@@ -30,3 +30,8 @@ You must download Playground and install it on your mobile
 ```
 ➜  weex-we git:(develop) ✗ weex index.we --qr
 ```
+
+## Open API
+
+see https://developers.douban.com/
+
