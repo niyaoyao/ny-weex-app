@@ -2,17 +2,17 @@
 
 ## Install Weex App
 
-- Install Weex
+### Install Weex
 
 see https://github.com/alibaba/weex
 
-- Git Clone
+### Git Clone
 
 ```
 git clone git@github.com:niyaoyao/weex-eleme-app.git
 ```
 
-- Install node_modules
+### Install node_modules
 
 Before run this weex App, you must install ```weex-components``` and ```babel-runtime```. 
 
@@ -23,7 +23,7 @@ Before run this weex App, you must install ```weex-components``` and ```babel-ru
 ➜  weex-we git:(develop) ✗ npm install babel-runtime
 ```
 
-- Run with Playground
+### Run with Playground
 
 You must download Playground and install it on your mobile
 
